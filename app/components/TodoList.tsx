@@ -23,45 +23,53 @@ const TodoList = ({
 
   return (
     <>
-      <div>
-        <h1 className="text-center py-3"> Task</h1>
-        {allTodo.map((e) => (
-          <div
-            key={e.id}
-            className="flex justify-between items-center w-[250px] mx-auto"
-          >
-            <h1>{e.todo}</h1>
-            <div className="flex gap-3">
-              <div>
-                <span
-                  className="icons cursor-pointer"
-                  onClick={() => deleteTodo(e.id)}
-                >
-                  <AiFillDelete />
-                </span>
-              </div>
-              <div>
-                <span
-                  className="icons cursor-pointer"
-                  onClick={() => tickTodo(e.id)}
-                >
-                  <BsCheck2All />
-                </span>
+      <div className="my-3">
+        <h1 className="text-center py-1 bg-gray-400">Active Task</h1>
+        {allTodo.length > 0 ? (
+          allTodo.map((e) => (
+            <div
+              key={e.id}
+              className="flex justify-between items-center w-[250px] mx-auto"
+            >
+              <h1>{e.todo}</h1>
+              <div className="flex gap-3">
+                <div>
+                  <span
+                    className="icons cursor-pointer"
+                    onClick={() => deleteTodo(e.id)}
+                  >
+                    <AiFillDelete />
+                  </span>
+                </div>
+                <div>
+                  <span
+                    className="icons cursor-pointer"
+                    onClick={() => tickTodo(e.id)}
+                  >
+                    <BsCheck2All />
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p className="text-center">No Active Task!</p>
+        )}
       </div>
       <div>
-        <h1 className="text-center py-3">Completed Task</h1>
-        {completedTodo.map((e) => (
-          <div
-            key={e.id}
-            className="flex justify-between items-center w-[250px] mx-auto"
-          >
-            <h1>{e.todo}</h1>
-          </div>
-        ))}
+        <h1 className="text-center py-1 bg-gray-400">Completed Task</h1>
+        {completedTodo.length > 0 ? (
+          completedTodo.map((e) => (
+            <div
+              key={e.id}
+              className="flex justify-between items-center w-[250px] mx-auto"
+            >
+              <h1>{e.todo}</h1>
+            </div>
+          ))
+        ) : (
+          <p className="text-center">No Completed Task!</p>
+        )}
       </div>
     </>
   );

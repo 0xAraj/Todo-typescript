@@ -20,8 +20,8 @@ const HomePage = () => {
     setTodo("");
   };
   return (
-    <div>
-      <h1 className="text-center py-3">Todo List</h1>
+    <div className="w-full min-w-fit mx-auto">
+      <h1 className="text-center py-3 bg-gray-400">Todo List</h1>
       <InputField todo={todo} setTodo={setTodo} listTodo={listTodo} />
       <TodoList
         allTodo={allTodo}
