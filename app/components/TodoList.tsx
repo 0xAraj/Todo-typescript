@@ -23,6 +23,12 @@ const TodoList = ({
   const deleteCompletedTodo = (id: number) => {
     setCompletedTodo(completedTodo.filter((e) => e.id !== id));
   };
+
+  const unTickCompletedTodo = (id: number) => {
+    deleteCompletedTodo(id);
+    const [newUnTickTodo]: Todo[] = completedTodo.filter((e) => e.id == id);
+    setAllTodo([...allTodo, newUnTickTodo]);
+  };
   return (
     <>
       <div className="my-3">
@@ -67,13 +73,23 @@ const TodoList = ({
               className="flex justify-between items-center w-[250px] mx-auto"
             >
               <h1>{e.todo}</h1>
-              <div>
-                <span
-                  className="icons cursor-pointer"
-                  onClick={() => deleteCompletedTodo(e.id)}
-                >
-                  <AiFillDelete />
-                </span>
+              <div className="flex gap-3">
+                <div>
+                  <span
+                    className="icons cursor-pointer"
+                    onClick={() => deleteCompletedTodo(e.id)}
+                  >
+                    <AiFillDelete />
+                  </span>
+                </div>
+                <div>
+                  <span
+                    className="icons cursor-pointer"
+                    onClick={() => unTickCompletedTodo(e.id)}
+                  >
+                    <BsCheck2All />
+                  </span>
+                </div>
               </div>
             </div>
           ))
