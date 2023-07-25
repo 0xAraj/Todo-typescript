@@ -32,14 +32,16 @@ const TodoList = ({
   return (
     <>
       <div className="my-3">
-        <h1 className="text-center py-1 bg-gray-400">Active Task</h1>
+        <h1 className="text-center py-1 bg-gray-400 text-lg font-semibold">
+          Active Task
+        </h1>
         {allTodo.length > 0 ? (
           allTodo.map((e) => (
             <div
               key={e.id}
               className="flex justify-between items-center w-[250px] mx-auto"
             >
-              <h1>{e.todo}</h1>
+              <span>{e.todo}</span>
               <div className="flex gap-3">
                 <div>
                   <span
@@ -65,14 +67,16 @@ const TodoList = ({
         )}
       </div>
       <div>
-        <h1 className="text-center py-1 bg-gray-400">Completed Task</h1>
+        <h1 className="text-center py-1 bg-gray-400 text-lg font-semibold">
+          Completed Task
+        </h1>
         {completedTodo.length > 0 ? (
           completedTodo.map((e) => (
             <div
               key={e.id}
               className="flex justify-between items-center w-[250px] mx-auto"
             >
-              <h1>{e.todo}</h1>
+              <s>{e.todo}</s>
               <div className="flex gap-3">
                 <div>
                   <span

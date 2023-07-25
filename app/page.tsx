@@ -21,7 +21,9 @@ const HomePage = () => {
   };
   return (
     <div className="w-full min-w-fit mx-auto">
-      <h1 className="text-center py-3 bg-gray-400">Todo List</h1>
+      <h1 className="text-center py-3 bg-gray-400 text-2xl font-bold">
+        Todo List
+      </h1>
       <InputField todo={todo} setTodo={setTodo} listTodo={listTodo} />
       <TodoList
         allTodo={allTodo}
