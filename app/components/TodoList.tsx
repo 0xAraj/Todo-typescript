@@ -19,8 +19,10 @@ const TodoList = ({
     const [newCompletedTodo]: Todo[] = allTodo.filter((e) => e.id == id);
     setCompletedTodo([...completedTodo, newCompletedTodo]);
   };
-  console.log(completedTodo);
 
+  const deleteCompletedTodo = (id: number) => {
+    setCompletedTodo(completedTodo.filter((e) => e.id !== id));
+  };
   return (
     <>
       <div className="my-3">
@@ -65,6 +67,14 @@ const TodoList = ({
               className="flex justify-between items-center w-[250px] mx-auto"
             >
               <h1>{e.todo}</h1>
+              <div>
+                <span
+                  className="icons cursor-pointer"
+                  onClick={() => deleteCompletedTodo(e.id)}
+                >
+                  <AiFillDelete />
+                </span>
+              </div>
             </div>
           ))
         ) : (
